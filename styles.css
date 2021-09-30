@@ -1,66 +1,110 @@
-/* Style the header with a grey background and some padding */
-
-.header {
-    overflow: hidden;
-    background-color: #f1f1f1;
-    padding: 20px 10px;
-}
-
-
-/* Style the header links */
-
-.header a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 12px;
+* {
+    padding: 0;
+    margin: 0;
     text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+    list-style: none;
 }
 
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+nav {
+    height: 80px;
+    width: 100%;
+    background: #24495e;
+}
 
-.header a.logo {
-    font-size: 25px;
+label.logo {
+    font-size: 35px;
     font-weight: bold;
-}
-
-
-/* Change the background color on mouse-over */
-
-.header a:hover {
-    background-color: rgb(204, 181, 181);
-    color: black;
-}
-
-
-/* Style the active/current link*/
-
-.header a.active {
-    background-color: dodgerblue;
     color: white;
+    padding: 0 100px;
+    line-height: 80px;
 }
 
-
-/* Float the link section to the right */
-
-.header-right {
+nav ul {
     float: right;
+    margin-right: 40px;
 }
 
+nav li {
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 80px;
+}
 
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+nav a {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 1px solid red transparent;
+    padding: 7px 10px;
+    border-radius: 3px;
+}
 
-@media screen and (max-width: 500px) {
-    .header a {
-        float: none;
+a.active,
+a:hover {
+    border: 1px solid white;
+}
+
+nav #icon {
+    color: white;
+    font-size: 30px;
+    line-height: 80px;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 1048px) {
+    label.logo {
+        font-size: 32px;
+        padding-left: 60px;
+    }
+    nav ul {
+        margin-right: 20px;
+    }
+    nav a {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 909px) {
+    nav #icon {
         display: block;
-        text-align: left;
     }
-    .header-right {
-        float: none;
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2f3640;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
     }
+    nav li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav a {
+        font-size: 20px;
+    }
+    a.active,
+    a:hover {
+        border: none;
+        color: #3498db;
+    }
+    nav ul.show {
+        left: 0;
+    }
+}
+
+section {
+    background-color: slateblue;
+    background-size: cover;
+    height: calc(100vh - 800px);
 }
